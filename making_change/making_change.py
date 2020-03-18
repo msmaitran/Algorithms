@@ -8,7 +8,7 @@ def making_change(amount, denominations):
 
   for coins in denominations:
     for value in range(coins, amount + 1):
-      cache[value] = cache[value] + cache[value - coins]
+      cache[value] += cache[value - coins]
   return cache[amount]
 
 
