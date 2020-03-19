@@ -3,7 +3,17 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  rps = ["rock", "paper", "scissors"]
+  plays = []
+  def combos(play, hand):
+    if play == 0:
+      plays.append(hand)
+      return
+    else:
+      for option in rps:
+        combos(play - 1, hand + [option])
+  combos(n, [])
+  return plays
 
 
 if __name__ == "__main__":

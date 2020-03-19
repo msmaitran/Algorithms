@@ -6,7 +6,15 @@ import sys
 # a solution that is more efficient than the naive 
 # recursive solution
 def eating_cookies(n, cache=None):
-  pass
+  permutation = [1, 1, 2]
+  if n < 3:
+    eating_cookies = permutation[n]
+  else:
+    for num_cookies in range(3, n):
+      permutation.append(permutation[0] + permutation[1] + permutation[2])
+      permutation.pop(0)
+    eating_cookies = sum(permutation)
+  return eating_cookies
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
